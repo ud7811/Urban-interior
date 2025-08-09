@@ -1,0 +1,18 @@
+import type { Metadata } from "next"
+import { createSeo } from "@/lib/seo"
+
+export const generateMetadata = async (): Promise<Metadata> => createSeo({ title: "About", path: "/about" })
+
+export default function AboutPage() {
+  return (
+    <div className="section">
+      <div className="container mx-auto px-4 space-y-6">
+        <h1 className="font-serif text-3xl">About Urban Luxe Interiors</h1>
+        <p className="text-muted-foreground max-w-2xl">
+          Urban Luxe Interiors is a premium interior design and wallpaper studio serving Noida, Greater Noida, and Ghaziabad.
+          Our philosophy blends warm minimalism with rich textures and timeless accents, delivering spaces that feel elegant and lived-in.
+        </p>
+      </div>
+    </div>
+  )
+}

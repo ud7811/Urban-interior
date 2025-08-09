@@ -1,0 +1,79 @@
+:root {
+  --bg: #FAF9F7;
+  --fg: #1F1F1F;
+  --muted-fg: #5a5a5a;
+  --accent-1: #D9C6B0;
+  --accent-2: #C6A15B;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Headings use Playfair display tone via font variables in layout */
+a { text-decoration: none; }
+
+/* Micro-interactions */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hover-zoom {
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.hover-zoom:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+/* Carousel and rails */
+.carousel-snap {
+  scroll-snap-type: x mandatory;
+}
+.carousel-snap > * {
+  scroll-snap-align: start;
+}
+
+/* Focus styling */
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+/* Buttons override on hover to muted gold */
+.btn-gold-hover:hover {
+  background-color: var(--accent-2) !important;
+  color: white !important;
+}
+
+/* Subtle card */
+.card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,.06);
+}
+
+/* Section paddings */
+.section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+@media (min-width: 768px) {
+  .section { padding-top: 4rem; padding-bottom: 4rem; }
+}
+
+/* Sticky CTA bar on mobile */
+.sticky-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 50;
+  background: #fffffffa;
+  border-top: 1px solid rgba(0,0,0,.06);
+  backdrop-filter: blur(6px);
+}
