@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Phone, MessageCircle } from 'lucide-react'
+import { Phone, MessageCircle } from "lucide-react"
 import { buildWhatsAppLink } from "@/lib/whatsapp"
 import { BLUR_DATA } from "@/lib/images"
 
@@ -30,16 +30,31 @@ export default async function Header() {
           <span className="font-serif text-lg">{brand}</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
-          <Link className="text-sm hover:text-[color:var(--accent-2)]" href="/services">Services</Link>
-          <Link className="text-sm hover:text-[color:var(--accent-2)]" href="/wallpapers">Wallpapers</Link>
-          <Link className="text-sm hover:text-[color:var(--accent-2)]" href="/portfolio">Portfolio</Link>
-          <Link className="text-sm hover:text-[color:var(--accent-2)]" href="/blog">Blog</Link>
-          <Link className="text-sm hover:text-[color:var(--accent-2)]" href="/about">About</Link>
-          <Link className="text-sm hover:text-[color:var(--accent-2)]" href="/contact">Contact</Link>
+          <Link className="text-sm hover:text-[color:var(--accent-2)]" href="/">
+            Home
+          </Link>
+          <Link className="text-sm hover:text-[color:var(--accent-2)]" href="/services">
+            Services
+          </Link>
+          <Link className="text-sm hover:text-[color:var(--accent-2)]" href="/wallpapers">
+            Wallpapers
+          </Link>
+          <Link className="text-sm hover:text-[color:var(--accent-2)]" href="/portfolio">
+            Portfolio
+          </Link>
+          <Link className="text-sm hover:text-[color:var(--accent-2)]" href="/blog">
+            Blog
+          </Link>
+          <Link className="text-sm hover:text-[color:var(--accent-2)]" href="/about">
+            About
+          </Link>
+          <Link className="text-sm hover:text-[color:var(--accent-2)]" href="/contact">
+            Contact
+          </Link>
         </nav>
         <div className="hidden md:flex items-center gap-3">
           <Link href={waLink} target="_blank">
-            <Button className="btn-gold-hover" variant="outline">
+            <Button className="btn-gold-hover bg-transparent" variant="outline">
               <MessageCircle className="w-4 h-4 mr-2" />
               Get Quote
             </Button>
