@@ -1,18 +1,21 @@
 :root {
-  --bg: #FAF9F7;
-  --fg: #1F1F1F;
+  --bg: #faf9f7;
+  --fg: #1f1f1f;
   --muted-fg: #5a5a5a;
-  --accent-1: #D9C6B0;
-  --accent-2: #C6A15B;
+  --accent-1: #d9c6b0;
+  --accent-2: #c6a15b;
 }
 
-html, body {
+html,
+body {
   background: var(--bg);
   color: var(--fg);
 }
 
 /* Headings use Playfair display tone via font variables in layout */
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+}
 
 /* Micro-interactions */
 .fade-in-up {
@@ -29,7 +32,7 @@ a { text-decoration: none; }
 }
 .hover-zoom:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
 /* Carousel and rails */
@@ -56,7 +59,7 @@ a { text-decoration: none; }
 .card {
   background: white;
   border-radius: 0.75rem;
-  box-shadow: 0 4px 14px rgba(0,0,0,.06);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
 /* Section paddings */
@@ -65,7 +68,10 @@ a { text-decoration: none; }
   padding-bottom: 3rem;
 }
 @media (min-width: 768px) {
-  .section { padding-top: 4rem; padding-bottom: 4rem; }
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 }
 
 /* Sticky CTA bar on mobile */
@@ -74,6 +80,107 @@ a { text-decoration: none; }
   bottom: 0;
   z-index: 50;
   background: #fffffffa;
-  border-top: 1px solid rgba(0,0,0,.06);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(6px);
+}
+
+/* ========== Shaped Gallery Marquee ========== */
+
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.marquee {
+  display: grid;
+  gap: 1.25rem;
+}
+.marquee-row {
+  overflow: hidden;
+}
+.marquee-track {
+  display: inline-flex;
+  gap: 1.25rem;
+  will-change: transform;
+  min-width: 200%;
+  /* Center on mount (halfway between -50% and 0% = -25%) */
+  transform: translateX(-25%);
+  /* Start the animation at 50% progress to match the centered transform */
+  animation: marquee-ltr var(--dur, 60s) linear infinite;
+  animation-delay: calc(var(--dur, 60s) / -2);
+  animation-play-state: paused;
+}
+.marquee-track.is-playing {
+  animation-play-state: running;
+}
+
+/* Pause on hover */
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+    transform: translateX(0) !important;
+  }
+}
+
+/* Optional hover lift on the rounded cards */
+.marquee .rounded-2xl {
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+.marquee .group:hover .rounded-2xl {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Shape masks (clip-path polygons) */
+.mask-hex {
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+}
+.mask-pentagon {
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+.mask-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.mask-triangle-invert {
+  clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+}
+/* Approx rounded triangle (visually softer corners) */
+.mask-rounded-triangle {
+  clip-path: polygon(50% 4%, 6% 96%, 94% 96%);
+  /* subtle corner rounding via mask feather */
+  -webkit-mask-image: radial-gradient(14px 14px at 50% 4%, #000 60%, rgba(0, 0, 0, 0) 70%),
+    radial-gradient(14px 14px at 6% 96%, #000 60%, rgba(0, 0, 0, 0) 70%),
+    radial-gradient(14px 14px at 94% 96%, #000 60%, rgba(0, 0, 0, 0) 70%);
+  -webkit-mask-composite: source-over;
+  mask-composite: add;
+}
+.mask-star4 {
+  clip-path: polygon(50% 0%, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0% 50%, 38% 38%);
+}
+/* Circle and rounded rect can rely on radius; we add helpers if needed */
+.mask-circle {
+  border-radius: 9999px;
+}
+.mask-rounded-rect {
+  border-radius: 1.25rem;
+}
+
+/* Subtle hover lift */
+.marquee [class*="mask-"],
+.marquee .mask-circle,
+.marquee .mask-rounded-rect {
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+.marquee [class*="mask-"]:hover,
+.marquee .mask-circle:hover,
+.marquee .mask-rounded-rect:hover {
+  transform: translateY(-2px);
 }
