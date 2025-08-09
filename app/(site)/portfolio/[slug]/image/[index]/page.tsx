@@ -1,28 +1,27 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
-import { sanity } from "@/lib/sanity/client"
-import { projectBySlugQuery } from "@/lib/sanity/queries"
 import { createSeo } from "@/lib/seo"
 import { BLUR_DATA } from "@/lib/images"
 import { ChevronLeft, ChevronRight, ArrowLeft } from "lucide-react"
+import { projects } from "@/data/projects"
 
 type Params = { slug: string; index: string }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const p = await sanity.fetch(projectBySlugQuery, { slug: params.slug })
-  const images = (p?.gallery?.length ? p.gallery : [p?.coverImage]).filter(Boolean)
+  const p = projects.find((x) => x.slug === params.slug)
+  const images = (p?.gallery?.length ? p.gallery : [p?.coverImage]).filter(Boolean) as string[]
   const idx = Number(params.index) || 0
   const title = p?.title ? `${p.title} — Image ${idx + 1}` : "Project Image"
   return createSeo({
     title,
     path: `/portfolio/${params.slug}/image/${idx}`,
-    images: [images?.[idx]?.asset?.url].filter(Boolean) as string[],
+    images: [images?.[idx]].filter(Boolean) as string[],
   })
 }
 
 export default async function ProjectImagePage({ params }: { params: Params }) {
-  const p = await sanity.fetch(projectBySlugQuery, { slug: params.slug })
+  const p = projects.find((x) => x.slug === params.slug)
   if (!p) return <div className="container mx-auto px-4 section">Not found</div>
 
   const images = (p.gallery?.length ? p.gallery : [p.coverImage]).filter(Boolean)
@@ -44,7 +43,7 @@ export default async function ProjectImagePage({ params }: { params: Params }) {
 
         <div className="relative w-full h-[70vh] rounded-xl overflow-hidden bg-muted">
           <Image
-            src={img?.asset?.url || "/placeholder.svg?height=720&width=1280&query=project+image"}
+            src={img || "/placeholder.svg?height=720&width=1280&query=project+image"}
             alt={`${p.title} — image ${idx + 1}`}
             fill
             className="object-contain bg-black/5"

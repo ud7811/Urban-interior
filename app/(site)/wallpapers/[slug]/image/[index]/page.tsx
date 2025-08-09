@@ -1,28 +1,27 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
-import { sanity } from "@/lib/sanity/client"
-import { wallpaperBySlugQuery } from "@/lib/sanity/queries"
 import { createSeo } from "@/lib/seo"
 import { BLUR_DATA } from "@/lib/images"
 import { ChevronLeft, ChevronRight, ArrowLeft } from "lucide-react"
+import { wallpapers } from "@/data/wallpapers"
 
 type Params = { slug: string; index: string }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const w = await sanity.fetch(wallpaperBySlugQuery, { slug: params.slug })
+  const w = wallpapers.find((x) => x.slug === params.slug)
   const images = (w?.images || []).filter(Boolean)
   const idx = Number(params.index) || 0
   const title = w?.title ? `${w.title} — Image ${idx + 1}` : "Wallpaper Image"
   return createSeo({
     title,
     path: `/wallpapers/${params.slug}/image/${idx}`,
-    images: [images?.[idx]?.asset?.url].filter(Boolean) as string[],
+    images: [images?.[idx]].filter(Boolean) as string[],
   })
 }
 
 export default async function WallpaperImagePage({ params }: { params: Params }) {
-  const w = await sanity.fetch(wallpaperBySlugQuery, { slug: params.slug })
+  const w = wallpapers.find((x) => x.slug === params.slug)
   if (!w) return <div className="container mx-auto px-4 section">Not found</div>
 
   const images = (w.images || []).filter(Boolean)
@@ -44,7 +43,7 @@ export default async function WallpaperImagePage({ params }: { params: Params })
 
         <div className="relative w-full h-[70vh] rounded-xl overflow-hidden bg-muted">
           <Image
-            src={img?.asset?.url || "/placeholder.svg?height=720&width=1280&query=wallpaper+image"}
+            src={img || "/placeholder.svg?height=720&width=1280&query=wallpaper+image"}
             alt={`${w.title} — image ${idx + 1}`}
             fill
             className="object-contain bg-black/5"
@@ -75,10 +74,7 @@ export default async function WallpaperImagePage({ params }: { params: Params })
           </div>
           <div className="text-right">
             <div className="font-serif text-xl">{w.title}</div>
-            {w.description ? <p className="text-sm text-muted-foreground max-w-prose">{w.description}</p> : null}
-            <div className="text-xs text-muted-foreground mt-1">
-              {w.category?.title ? `Category: ${w.category.title}` : ""}
-            </div>
+            <div className="text-xs text-muted-foreground mt-1">{w.description}</div>
           </div>
         </div>
       </div>
