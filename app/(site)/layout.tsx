@@ -7,6 +7,7 @@ import StickyMobileCTA from "@/components/site/sticky-mobile-cta"
 import { Inter, Playfair_Display } from "next/font/google"
 import type { Metadata } from "next"
 import { createSeo } from "@/lib/seo"
+import { Toaster } from "sonner"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" })
@@ -26,6 +27,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
     <div className={`${inter.variable} ${playfair.variable}`} style={{ fontFamily: "var(--font-inter)" }}>
       <GA />
       <Header />
+      <Toaster position="top-center" richColors closeButton />
       <main>{children}</main>
       <Footer />
       <StickyMobileCTA />
