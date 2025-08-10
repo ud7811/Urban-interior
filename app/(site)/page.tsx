@@ -7,6 +7,7 @@ import { HomeRoomIdeas } from "@/components/sections/room-ideas"
 import { WhyUs } from "@/components/sections/why-us"
 import { Testimonials } from "@/components/sections/testimonials"
 import ShapedGalleryMarquee from "@/components/sections/ShapedGalleryMarquee"
+import EverythingInteriors from "@/components/sections/everything-interiors"
 import type { Metadata } from "next"
 
 export const generateMetadata = async (): Promise<Metadata> => {
@@ -36,7 +37,7 @@ export default function HomePage() {
     { src: "/botanical-wallpaper.png", alt: "Botanical custom wallpaper" },
     { src: "/geometric-wallpaper.png", alt: "Geometric custom wallpaper" },
     {
-      src: "https://images.unsplash.com/photo-1505692952047-1a78307da8f2?w=1600&q=70&auto=format&fit=crop",
+      src: "https://images.unsplash.com/photo-1505692952047-b19be8fe80f2?w=1600&q=70&auto=format&fit=crop",
       alt: "Warm minimalist living room",
     },
     {
@@ -48,15 +49,15 @@ export default function HomePage() {
       alt: "White kitchen with wood accents",
     },
     {
-      src: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1600&q=70&auto=format&fit=crop",
+      src: "https://images.unsplash.com/photo-1493809842364-1a78307da8f2?w=1600&q=70&auto=format&fit=crop",
       alt: "Neutral bedroom with layered textiles",
     },
     {
-      src: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1600&q=70&auto=format&fit=crop",
+      src: "https://images.unsplash.com/photo-1493660412993-7dacf7beaa0a?w=1600&q=70&auto=format&fit=crop",
       alt: "Modern lounge chair vignette",
     },
     {
-      src: "https://images.unsplash.com/photo-1493660412993-7dacf7beaa0a?w=1600&q=70&auto=format&fit=crop",
+      src: "https://images.unsplash.com/photo-1493809842364-37526070297c?w=1600&q=70&auto=format&fit=crop",
       alt: "Elegant dining setup",
     },
     {
@@ -80,7 +81,7 @@ export default function HomePage() {
       alt: "Kitchen island and pendant",
     },
     {
-      src: "https://images.unsplash.com/photo-1499673610122-01c7122c5dcb?w=1600&q=70&auto=format&fit=crop",
+      src: "https://images.unsplash.com/photo-1493660412993-37526070297c?w=1600&q=70&auto=format&fit=crop",
       alt: "Green textured accent wall (wallpaper look)",
     },
     {
@@ -105,6 +106,7 @@ export default function HomePage() {
       <HomeRoomIdeas />
       <ShapedGalleryMarquee items={inspirationItems} />
       <WallpaperCategoriesRail />
+      <EverythingInteriors />
       <WhyUs />
       <Testimonials />
     </>
