@@ -4,6 +4,7 @@ import { GA } from "@/lib/ga"
 import Header from "@/components/site/header"
 import Footer from "@/components/site/footer"
 import StickyMobileCTA from "@/components/site/sticky-mobile-cta"
+import BackToTop from "@/components/site/back-to-top"
 import { Inter, Playfair_Display } from "next/font/google"
 import type { Metadata } from "next"
 import { createSeo } from "@/lib/seo"
@@ -30,6 +31,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <Toaster position="top-center" richColors closeButton />
       <main>{children}</main>
       <Footer />
+      <BackToTop />
       <StickyMobileCTA />
     </div>
   )
