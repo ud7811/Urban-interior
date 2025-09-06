@@ -10,10 +10,10 @@ const allowed = ["/", "/services", "/wallpapers", "/portfolio"]
 export default function StickyMobileCTA() {
   const pathname = usePathname()
   const show = allowed.some((p) => pathname === p || pathname.startsWith(p + "/"))
-  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919999999999"
+  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "917428095297"
   const wa = buildWhatsAppLink({
     number: whatsapp,
-    text: "Hi Urban Luxe, I'd like a design consultation",
+    text: "Hi Walls N Interior, I'd like a design consultation",
   })
   if (!show) return null
   return (
