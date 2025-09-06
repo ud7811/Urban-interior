@@ -1,4 +1,4 @@
-# Urban Luxe Interiors — Next.js 14 + Sanity
+# Wallsninterior — Next.js 14 + Sanity
 
 Premium, warm, and trustworthy interior design + wallpapers studio website for Noida, Greater Noida, and Ghaziabad.
 
