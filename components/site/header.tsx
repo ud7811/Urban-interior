@@ -5,15 +5,15 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Phone, MessageCircle } from "lucide-react"
 import { buildWhatsAppLink } from "@/lib/whatsapp"
-import { BLUR_DATA } from "@/lib/images"
+import logo from "../../public/logo.png"
 import { usePathname } from "next/navigation"
 
 export default function Header() {
-  const brand = "Urban Luxe Interiors"
-  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919999999999"
+  const brand = "Walls N Interiors"
+  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919610459679"
   const waLink = buildWhatsAppLink({
     number: whatsapp,
-    text: "Hi Urban Luxe, I'd like a design consultation",
+    text: "Hi Wallsninteriors, I'd like a design consultation",
   })
 
   const pathname = usePathname()
@@ -38,15 +38,13 @@ export default function Header() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/images/logo.png"
-            alt="Urban Luxe Interiors logo"
-            width={40}
+            src={logo}
+            alt="Walls N Interiors logo"
+            width={120}
             height={40}
-            className="rounded-full object-cover"
-            placeholder="blur"
-            blurDataURL={BLUR_DATA}
+            className="h-15 w-auto object-contain"
           />
-          <span className="font-serif text-lg">{brand}</span>
+          <span className="font-serif text-lg font-medium text-[color:var(--accent-2)]">{brand}</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -78,7 +76,7 @@ export default function Header() {
               Get Quote
             </Button>
           </Link>
-          <Link href="tel:+919999999999">
+          <Link href="tel:+917428095297">
             <Button variant="default">
               <Phone className="w-4 h-4 mr-2" />
               Call

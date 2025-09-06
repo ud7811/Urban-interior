@@ -20,7 +20,7 @@ export default async function PostDetail({ params }: { params: { slug: string } 
     url: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/blog/${params.slug}`,
     image: post.heroImage,
     datePublished: post.publishedAt,
-    authorName: "Urban Luxe Interiors",
+    authorName: "Wallsninteriors",
   })
 
   return (

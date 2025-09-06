@@ -20,7 +20,7 @@ export default function StickyMobileCTA() {
     <div className="sticky-bar md:hidden">
       <div className="container mx-auto px-4 py-2 grid grid-cols-3 gap-2">
         <Link
-          href="tel:+919999999999"
+          href="tel:+917428095297"
           className="inline-flex items-center justify-center rounded-md border py-2 text-sm font-medium btn-gold-hover"
           aria-label="Call"
         >

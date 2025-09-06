@@ -26,8 +26,8 @@ export default function ContactPage() {
             Sector 62, Noida, 201301, UP, India
           </p>
           <div className="mt-4 text-sm">
-            <div><strong>Phone:</strong> <a className="underline" href="tel:+919999999999">+91 99999 99999</a></div>
-            <div><strong>Email:</strong> <a className="underline" href="mailto:hello@urbanluxe.example">hello@urbanluxe.example</a></div>
+            <div><strong>Phone:</strong> <a className="underline" href="tel:+917428095297">+917428095297</a></div>
+            <div><strong>Email:</strong> <a className="underline" href="mailto:wallsninterior@gmail.com">wallsninterior@gmail.com</a></div>
           </div>
         </div>
       </div>

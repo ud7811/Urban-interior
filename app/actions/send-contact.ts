@@ -13,7 +13,7 @@ export type ContactPayload = {
 export async function sendContact(payload: ContactPayload) {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY)
-    const to = process.env.CONTACT_TO_EMAIL || "hello@urbanluxe.example"
+    const to = process.env.CONTACT_TO_EMAIL || "wallsninterior@gmail.com"
     const from = process.env.RESEND_FROM_EMAIL || "Studio <no-reply@your-domain.example>"
     const subject = `New enquiry from ${payload.name} (${payload.city})`
 

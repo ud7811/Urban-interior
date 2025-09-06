@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="border-t mt-12">
       <div className="container mx-auto px-4 py-10 grid gap-8 md:grid-cols-4">
         <div>
-          <div className="font-serif text-xl mb-2">Urban Luxe Interiors</div>
+          <div className="font-serif text-xl mb-2">Wallsninteriors</div>
           <p className="text-sm text-muted-foreground">
             Premium interiors and designer wallpapers for elegant homes and offices in Noida, Greater Noida, and Ghaziabad.
           </p>
@@ -31,14 +31,14 @@ export default function Footer() {
         <div>
           <div className="font-semibold mb-3">Contact</div>
           <ul className="grid gap-2 text-sm">
-            <li><a className="hover:underline" href="tel:+919999999999">+91 99999 99999</a></li>
-            <li><a className="hover:underline" href="mailto:hello@urbanluxe.example">hello@urbanluxe.example</a></li>
-            <li className="text-muted-foreground">Mon-Sat 10:00–18:00</li>
+            <li><a className="hover:underline" href="tel:+917428095297">+91 7428095297</a></li>
+            <li><a className="hover:underline" href="mailto:wallsninterior@gmail.com">wallsninterior@gmail.com</a></li>
+            <li className="text-muted-foreground">Mon-Sun 09:00 a.m – 10:00 p.m</li>
           </ul>
         </div>
       </div>
       <div className="border-t py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Urban Luxe Interiors. All rights reserved.
+        © {new Date().getFullYear()} Wallsninteriors. All rights reserved.
       </div>
     </footer>
   )
