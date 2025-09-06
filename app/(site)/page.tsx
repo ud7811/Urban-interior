@@ -20,13 +20,13 @@ export const generateMetadata = async (): Promise<Metadata> => {
 export default function HomePage() {
   // LocalBusiness JSON-LD
   const jsonLd = localBusinessJsonLd({
-    brand: "Wallsninteriors",
+    brand: "Wallsninterior",
     phone: "+917428095297",
     email: "wallsninterior@gmail.com",
     address: {
-      streetAddress: "Sector 62",
-      addressLocality: "Noida",
-      postalCode: "201301",
+      streetAddress: "LGF-11, Avantika Retail Street",
+      addressLocality: "ghaziabad",
+      postalCode: "201016",
       addressRegion: "UP",
       addressCountry: "IN",
     },

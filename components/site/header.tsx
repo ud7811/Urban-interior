@@ -9,11 +9,11 @@ import logo from "../../public/logo.png"
 import { usePathname } from "next/navigation"
 
 export default function Header() {
-  const brand = "Walls N Interiors"
+  const brand = "Walls N Interior"
   const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919610459679"
   const waLink = buildWhatsAppLink({
     number: whatsapp,
-    text: "Hi Wallsninteriors, I'd like a design consultation",
+    text: "Hi Wallsninterior, I'd like a design consultation",
   })
 
   const pathname = usePathname()
@@ -39,7 +39,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2">
           <Image
             src={logo}
-            alt="Walls N Interiors logo"
+            alt="Walls N Interior logo"
             width={120}
             height={40}
             className="h-15 w-auto object-contain"

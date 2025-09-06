@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="border-t mt-12">
       <div className="container mx-auto px-4 py-10 grid gap-8 md:grid-cols-4">
         <div>
-          <div className="font-serif text-xl mb-2">Wallsninteriors</div>
+          <div className="font-serif text-xl mb-2">Wallsninterior</div>
           <p className="text-sm text-muted-foreground">
             Premium interiors and designer wallpapers for elegant homes and offices in Noida, Greater Noida, and Ghaziabad.
           </p>
@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Wallsninteriors. All rights reserved.
+        © {new Date().getFullYear()} Wallsninterior. All rights reserved.
       </div>
     </footer>
   )

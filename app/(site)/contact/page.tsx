@@ -23,7 +23,7 @@ export default function ContactPage() {
         <div className="card p-6">
           <div className="font-semibold mb-2">Studio</div>
           <p className="text-sm text-muted-foreground">
-            Sector 62, Noida, 201301, UP, India
+            LGF-11, Avantika Retail Street, Crossing Republik, Gzb, 201016, UP, India
           </p>
           <div className="mt-4 text-sm">
             <div><strong>Phone:</strong> <a className="underline" href="tel:+917428095297">+917428095297</a></div>

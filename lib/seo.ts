@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 export const siteConfig = {
-  name: "Wallsninteriors",
+  name: "Wallsninterior",
   description: "Premium interior design and designer wallpapers in Noida, Greater Noida, and Ghaziabad.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   ogImage: "/images/hero-1.png",
